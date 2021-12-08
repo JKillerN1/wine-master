@@ -11,6 +11,7 @@ if __name__ == '__main__':
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html', 'xml'])
     )
+
     template = env.get_template('template.html')
     date = int(os.path.split(os.path.split(str(datetime.datetime.now().date()).replace('-', '/'))[0])[0])
 
@@ -26,7 +27,7 @@ if __name__ == '__main__':
             date=date - 1920,
             category_products=products_by_category,
         )
-        
+
     with open('index.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
 
