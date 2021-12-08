@@ -114,9 +114,9 @@
           </div>
         </div>
         <div class="row">
-          {% for name_category, product in category_products.items() %}
+          {% for category_name, product in category_products.items() %}
             <div class="col-12 section-title text-center mb-5">
-            <h2 class="d-block">{{name_category}}</h2>
+            <h2 class="d-block">{{category_name}}</h2>
             </div>
             <div class="row">
             {% for i in product%}
