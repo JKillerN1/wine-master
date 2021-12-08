@@ -17,13 +17,13 @@ drinks = pandas.read_excel('wine3.xlsx',
                                   sheet_name='Лист1',
                                   usecols=['Категория', 'Название', 'Сорт', 'Цена', 'Картинка', 'Акция'],
                                   na_values=['N/A', 'NA'], keep_default_na=False).to_dict(orient='records')
-category_products = defaultdict(list)
+products_by_category = defaultdict(list)
 
 for drink in drinks:
-    category_products[drink["Категория"]].append(drink)
+    products_by_category[drink["Категория"]].append(drink)
     rendered_page = template.render(
         date=date - 1920,
-        category_products=category_products,
+        category_products=products_by_category,
     )
     with open('index.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
