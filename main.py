@@ -1,8 +1,9 @@
-from http.server import HTTPServer, SimpleHTTPRequestHandler
-from collections import defaultdict
-import os.path
-import pandas
 import datetime
+from collections import defaultdict
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+import os.path
+
+import pandas
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 env = Environment(
