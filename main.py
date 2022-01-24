@@ -2,7 +2,6 @@ import argparse
 import datetime
 from collections import defaultdict
 from http.server import HTTPServer, SimpleHTTPRequestHandler
-import os
 
 import pandas
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -14,7 +13,8 @@ if __name__ == '__main__':
     )
 
     template = env.get_template('template.html')
-    date = int(os.path.split(os.path.split(str(datetime.datetime.now().date()).replace('-', '/'))[0])[0])
+
+    date_now = datetime.datetime.now()
 
     parser = argparse.ArgumentParser(
         description='Создание сайта'
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     for drink in drinks:
         products_by_category[drink["Категория"]].append(drink)
         rendered_page = template.render(
-            date=date - 1920,
+            date=date_now - 1920,
             category_products=products_by_category,
         )
 
