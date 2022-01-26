@@ -31,10 +31,11 @@ if __name__ == '__main__':
 
     for drink in drinks:
         products_by_category[drink["Категория"]].append(drink)
-        rendered_page = template.render(
-            date=date_now - 1920,
-            category_products=products_by_category,
-        )
+
+    rendered_page = template.render(
+        date=date_now - 1920,
+        category_products=products_by_category,
+    )
 
     with open('index.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
