@@ -23,7 +23,7 @@ if __name__ == '__main__':
     parser.add_argument('link', help='Введите название файла')
     xlsx_file_path = parser.parse_args().link
 
-    drinks = pandas.read_excel(f'{xlsx_file_path}.xlsx',
+    drinks = pandas.read_excel(f'{xlsx_file_path}',
                                       sheet_name='Лист1',
                                       usecols=['Категория', 'Название', 'Сорт', 'Цена', 'Картинка', 'Акция'],
                                       na_values=['N/A', 'NA'], keep_default_na=False).to_dict(orient='records')
