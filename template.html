@@ -113,6 +113,7 @@
             </p>
           </div>
         </div>
+        
         <div class="row">
           {% for category_name, products in category_products.items() %}
             <div class="col-12 section-title text-center mb-5">
@@ -126,6 +127,7 @@
                 {% if product.Акция %}
                   <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
                 {% endif %}
+
               <div>
                 <h3 class="heading mt-3 mb-3 text-dark">{{product.Название}}</h3>
                 <p>
@@ -135,6 +137,7 @@
                   <span class="price">{{product.Цена}}</span>
                 </p>
               </div>
+
               </div>
               </div>
             {% endfor %}
