@@ -7,6 +7,7 @@ import pandas
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 if __name__ == '__main__':
+    winery_creation_date = 1920
     env = Environment(
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html', 'xml'])
@@ -33,7 +34,7 @@ if __name__ == '__main__':
         products_by_category[drink["Категория"]].append(drink)
 
     rendered_page = template.render(
-        age=date_now - 1920,
+        age=date_now - winery_creation_date,
         category_products=products_by_category,
     )
 
