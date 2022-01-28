@@ -20,9 +20,9 @@ if __name__ == '__main__':
         description='Создание сайта'
     )
     parser.add_argument('link', help='Введите название файла')
-    xlx_file_name = parser.parse_args().link
+    xlsx_file_path = parser.parse_args().link
 
-    drinks = pandas.read_excel(f'{xlx_file_name}.xlsx',
+    drinks = pandas.read_excel(f'{xlsx_file_path}.xlsx',
                                       sheet_name='Лист1',
                                       usecols=['Категория', 'Название', 'Сорт', 'Цена', 'Картинка', 'Акция'],
                                       na_values=['N/A', 'NA'], keep_default_na=False).to_dict(orient='records')
@@ -33,7 +33,7 @@ if __name__ == '__main__':
         products_by_category[drink["Категория"]].append(drink)
 
     rendered_page = template.render(
-        date=date_now - 1920,
+        age=date_now - 1920,
         category_products=products_by_category,
     )
 
