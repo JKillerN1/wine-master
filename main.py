@@ -1,10 +1,11 @@
 import datetime
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
-import argparse
-from collections import defaultdict
 import pandas
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+
+import argparse
+from collections import defaultdict
 
 if __name__ == '__main__':
     winery_creation_date = 1920
