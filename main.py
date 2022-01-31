@@ -17,7 +17,6 @@ if __name__ == '__main__':
     template = env.get_template('template.html')
 
     date_now = datetime.datetime.now()
-
     parser = argparse.ArgumentParser(
         description='Создание сайта'
     )
@@ -35,7 +34,7 @@ if __name__ == '__main__':
         products_by_category[drink["Категория"]].append(drink)
 
     rendered_page = template.render(
-        age=date_now - winery_creation_year,
+        age=date_now.year - winery_creation_year,
         category_products=products_by_category,
     )
 
