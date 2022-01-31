@@ -8,7 +8,7 @@ import argparse
 from collections import defaultdict
 
 if __name__ == '__main__':
-    winery_creation_date = 1920
+    winery_creation_year = 1920
     env = Environment(
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html', 'xml'])
@@ -35,7 +35,7 @@ if __name__ == '__main__':
         products_by_category[drink["Категория"]].append(drink)
 
     rendered_page = template.render(
-        age=date_now - winery_creation_date,
+        age=date_now - winery_creation_year,
         category_products=products_by_category,
     )
 
