@@ -24,11 +24,16 @@ if __name__ == '__main__':
     xlsx_file_path = parser.parse_args().link
 
     drinks = pandas.read_excel(xlsx_file_path,
-                                      sheet_name='Лист1',
-                                      usecols=['Категория', 'Название', 'Сорт', 'Цена', 'Картинка', 'Акция'],
-                                      na_values=['N/A', 'NA'], keep_default_na=False).to_dict(orient='records')
+                               sheet_name='Лист1',
+                               usecols=['Категория',
+                                        'Название',
+                                        'Сорт',
+                                        'Цена',
+                                        'Картинка',
+                                        'Акция'],
+                               na_values=['N/A', 'NA'],
+                               keep_default_na=False).to_dict(orient='records')
     products_by_category = defaultdict(list)
-
 
     for drink in drinks:
         products_by_category[drink["Категория"]].append(drink)
